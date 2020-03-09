@@ -14,6 +14,11 @@ class App extends React.Component {
     this.state = {
       imagenes: listaImagenes
     };
+    this.guardarImagen = this.guardarImagen.bind(this);
+  }
+
+  guardarImagen(imagen){
+    this.setState({imagenes: [...this.state.imagenes, imagen]})
   }
 
   render() {
@@ -21,7 +26,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <div>
-              <Imagenes />
+              <Imagenes guardar={this.guardarImagen} />
               <ListaImagenes listaImagenes={this.state.imagenes} />
           </div>
         </header>
